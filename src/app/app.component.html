@@ -1,0 +1,13 @@
+<h1>GLOBAL LOADER </h1>
+<app-loader></app-loader> 
+<div [hidden]="loaderService.isLoading | async">{{ mode }} MODE </div>
+<div><button (click)="toggleMode()" [hidden]="loaderService.isLoading | async">Toggle Mode(s)</button></div>
+<br/>
+<div><button (click)="load()" [hidden]="loaderService.isLoading | async">Load Requests</button></div>
+
+<br/>
+<div><button (click)="showLoader(true)" *ngIf="mode === loaderType.MANUAL">Show Loader</button></div>
+<div><button (click)="showLoader(false)" *ngIf="mode === loaderType.MANUAL">Hide Loader</button></div>
+<div *ngFor="let resp of response;let i = index">
+    {{resp}} of 4
+</div>
